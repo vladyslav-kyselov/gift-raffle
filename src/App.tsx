@@ -97,7 +97,7 @@ function App() {
     return (
         <div className="wrapper">
             <div className="img">
-                <img src="../public/1.avif" alt="background"/>
+                <img src="./1.avif" alt="background"/>
             </div>
             <div className="input">
                 <TextField

@@ -31,11 +31,11 @@ const TICKET = {
 
 const getImagePath = (tickets: number) => {
     if (tickets === 0) {
-        return '../public/nutella.jpg';
+        return './nutella.jpg';
     } else if (tickets === 1 || tickets === 2) {
-        return '../public/tablerone.jpg';
+        return './tablerone.jpg';
     } else {
-        return '../public/milkyway.jpeg';
+        return './milkyway.jpeg';
     }
 }
 
@@ -70,7 +70,7 @@ export default function CustomModal({showModal, handleClose, winTickets}: Props)
                         {
                             showModal === 'LOSE' &&
                             <img
-                                src="../public/lose.jpg" alt="lose icon"
+                                src="./lose.jpg" alt="lose icon"
                                 style={{
                                     marginTop: '15px',
                                     width: '100%',
