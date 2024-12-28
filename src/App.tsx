@@ -10,6 +10,11 @@ import CustomModal from "./Modal.tsx";
 import Button from "@mui/material/Button";
 import {Alert, Fade} from "@mui/material";
 
+type Ticket = {
+    id: string;
+    used: boolean;
+};
+
 function App() {
     const [losing, setLosing] = useState(null);
     const [winning, setWinning] = useState(null);
@@ -54,8 +59,8 @@ function App() {
     }, []);
 
     const onClick = () => {
-        const isLose = losing.find((item) => item.id.toLowerCase() === code.toLowerCase());
-        const isWin = winning.find((item) => item.id.toLowerCase() === code.toLowerCase());
+        const isLose = (losing || []).find((item: Ticket) => item.id.toLowerCase() === code.toLowerCase());
+        const isWin = (winning || []).find((item: Ticket) => item.id.toLowerCase() === code.toLowerCase());
 
         if (isLose && isLose.used || isWin && isWin.used) {
             setErrorMessage('Цей код вже використано!');
@@ -65,7 +70,7 @@ function App() {
                 setShowModal('LOSE');
                 const refStartGame = ref(db, '/losing');
 
-                const newLosingArray = losing.map((item) => item.id === code ? {...item, used: true} : item);
+                const newLosingArray = (losing || []).map((item: Ticket) => item.id === code ? {...item, used: true} : item);
                 setLosing(newLosingArray);
                 set(refStartGame, newLosingArray);
             }
@@ -74,13 +79,13 @@ function App() {
                 setShowModal('WIN');
                 const refStartGame = ref(db, '/winning');
 
-                const newWinningArray = winning.map((item) => item.id === code ? {...item, used: true} : item);
+                const newWinningArray = (winning || []).map((item: Ticket) => item.id === code ? {...item, used: true} : item);
                 setWinning(newWinningArray);
                 set(refStartGame, newWinningArray);
             }
 
             const refStartGame = ref(db, '/tickets');
-            set(refStartGame, tickets - 1);
+            set(refStartGame, (tickets || 1) - 1);
 
 
             setCode('');
