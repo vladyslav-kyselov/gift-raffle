@@ -60,7 +60,12 @@ export default function CustomModal({showModal, handleClose, winTickets}: Props)
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        {TICKET?.[showModal]?.title || ''}
+                        {
+                            showModal === 'LOSE' && TICKET.LOSE.title
+                        }
+                        {
+                            showModal === 'WIN' && TICKET.WIN.title
+                        }
 
                         {
                             showModal === 'LOSE' &&
