@@ -5,8 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+
 
 import { TransitionProps } from '@mui/material/transitions';
 import {Slide} from "@mui/material";
@@ -30,7 +29,7 @@ const TICKET = {
     }
 }
 
-const getImagePath = (tickets) => {
+const getImagePath = (tickets: number) => {
     console.log(tickets, 'TICKETS');
     if (tickets === 0) {
         return '../public/nutella.jpg';
@@ -41,10 +40,13 @@ const getImagePath = (tickets) => {
     }
 }
 
-export default function CustomModal({showModal, handleClose, winTickets}) {
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+type Props = {
+    showModal: string | null;
+    handleClose: () => void;
+    winTickets: number;
+}
 
+export default function CustomModal({showModal, handleClose, winTickets}: Props) {
     return (
         <React.Fragment>
             <Dialog
