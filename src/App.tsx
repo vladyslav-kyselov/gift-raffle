@@ -16,12 +16,12 @@ type Ticket = {
 };
 
 function App() {
-    const [losing, setLosing] = useState(null);
-    const [winning, setWinning] = useState(null);
-    const [tickets, setTickets] = useState(null);
+    const [losing, setLosing] = useState<null | Ticket[]>(null);
+    const [winning, setWinning] = useState<null | Ticket[]>(null);
+    const [tickets, setTickets] = useState<number | null>(null);
 
-    const [errorMessage, setErrorMessage] = useState('');
-    const [code, setCode] = useState('');
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [code, setCode] = useState<string>('');
 
     const [showModal, setShowModal] = useState<string | null>(null);
 
@@ -62,7 +62,7 @@ function App() {
         const isLose = (losing || []).find((item: Ticket) => item.id.toLowerCase() === code.toLowerCase());
         const isWin = (winning || []).find((item: Ticket) => item.id.toLowerCase() === code.toLowerCase());
 
-        if (isLose && isLose.used || isWin && isWin.used) {
+        if (isLose && isLose?.used || isWin && isWin?.used) {
             setErrorMessage('Цей код вже використано!');
         } else if (isLose || isWin) {
 
@@ -117,7 +117,7 @@ function App() {
                 />
                 <CustomModal showModal={showModal} handleClose={() => setShowModal(null)}
                              winTickets={(winning || []).reduce((prev, curr) => {
-                                 return prev + (curr.used ? 0 : 1);
+                                 return prev + (curr?.used ? 0 : 1);
                              }, 0)}/>
                 <Button
                     className="button"
