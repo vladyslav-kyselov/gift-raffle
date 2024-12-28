@@ -16,7 +16,7 @@ const Transition = React.forwardRef(function Transition(
     },
     ref: React.Ref<unknown>,
 ) {
-    return <Slide direction="up" ref={ref} {...props} />;
+    return <Slide direction="up" ref={ref} {...props}/>;
 });
 
 
@@ -30,7 +30,6 @@ const TICKET = {
 }
 
 const getImagePath = (tickets: number) => {
-    console.log(tickets, 'TICKETS');
     if (tickets === 0) {
         return '../public/nutella.jpg';
     } else if (tickets === 1 || tickets === 2) {
@@ -61,7 +60,7 @@ export default function CustomModal({showModal, handleClose, winTickets}: Props)
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        {TICKET[showModal]?.title || ''}
+                        {TICKET?.[showModal]?.title || ''}
 
                         {
                             showModal === 'LOSE' &&
