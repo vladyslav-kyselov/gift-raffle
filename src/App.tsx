@@ -70,7 +70,9 @@ function App() {
                 setShowModal('LOSE');
                 const refStartGame = ref(db, '/losing');
 
-                const newLosingArray = (losing || []).map((item: Ticket) => item.id === code ? {...item, used: true} : item);
+                const newLosingArray = (losing || []).map((item: Ticket) =>
+                    item.id.toLowerCase() === code.toLowerCase() ? {...item, used: true} : item
+                );
                 setLosing(newLosingArray);
                 set(refStartGame, newLosingArray);
             }
@@ -79,7 +81,9 @@ function App() {
                 setShowModal('WIN');
                 const refStartGame = ref(db, '/winning');
 
-                const newWinningArray = (winning || []).map((item: Ticket) => item.id === code ? {...item, used: true} : item);
+                const newWinningArray = (winning || []).map((item: Ticket) =>
+                    item.id.toLowerCase() === code.toLowerCase() ? {...item, used: true} : item
+                );
                 setWinning(newWinningArray);
                 set(refStartGame, newWinningArray);
             }
