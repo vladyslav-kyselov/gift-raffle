@@ -15,41 +15,41 @@ type Ticket = {
     used: boolean;
 };
 
-const winningStartArray = [
-    'K5RSC', // +
-    'KVMBY', // +
-    '815Y5', // +
-    'IAIFI', // +
-    '8T004', // +
-    'OFNFC', // +
-    'X1YGN', // +
-    '6K78E', // +
-    'GA4YA', // +
-    'SZSOH', // +
-    'R28P6', // +
-    'PX6KO', // +
-    'VV3YS', // +
-    'J0BWV', // +
-    'H1GQ0', // +
-    'FICG1', // +
-    'HEFFR', // +
-    'QLZB8', // +
-    'MSBGE', // +
-    'S3Z1N', // +
-    'ZEH8Z' // +
-];
-
-const losingStartArray = [
-    'QP7MI', // +
-    '2VLH3', // +
-    'J4SGC', // +
-    'F3XHT', // +
-    'J2LA0', // +
-    'VZPH2', // +
-    '4WY4M', // +
-    '95JKB', // +
-    'QNKU0' // +
-];
+// const winningStartArray = [
+//     'K5RSC', // +
+//     'KVMBY', // +
+//     '815Y5', // +
+//     'IAIFI', // +
+//     '8T004', // +
+//     'OFNFC', // +
+//     'X1YGN', // +
+//     '6K78E', // +
+//     'GA4YA', // +
+//     'SZSOH', // +
+//     'R28P6', // +
+//     'PX6KO', // +
+//     'VV3YS', // +
+//     'J0BWV', // +
+//     'H1GQ0', // +
+//     'FICG1', // +
+//     'HEFFR', // +
+//     'QLZB8', // +
+//     'MSBGE', // +
+//     'S3Z1N', // +
+//     'ZEH8Z' // +
+// ];
+//
+// const losingStartArray = [
+//     'QP7MI', // +
+//     '2VLH3', // +
+//     'J4SGC', // +
+//     'F3XHT', // +
+//     'J2LA0', // +
+//     'VZPH2', // +
+//     '4WY4M', // +
+//     '95JKB', // +
+//     'QNKU0' // +
+// ];
 
 function App() {
     const [losing, setLosing] = useState<null | Ticket[]>(null);
