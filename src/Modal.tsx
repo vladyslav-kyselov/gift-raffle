@@ -29,14 +29,41 @@ const TICKET = {
     }
 }
 
-const getImagePath = (tickets: number) => {
-    if (tickets === 0) {
-        return './nutella.jpg';
-    } else if (tickets === 1 || tickets === 2) {
-        return './tablerone.jpg';
-    } else {
-        return './milkyway.jpeg';
-    }
+
+const prizes = [
+    './nutella.jpg', // 0
+    './nussbeisser.png', // 1
+
+    './pepsi.jpg', // 2
+    './pepsi.jpg', // 3
+    './pepsi.jpg', // 4
+    './pepsi.jpg', // 5
+
+    './migdały-prażone.jpg', // 6
+    './migdały-prażone.jpg', // 7
+    './migdały-prażone.jpg', // 8
+    './migdały-prażone.jpg', // 9
+    './migdały-prażone.jpg', // 10
+    './migdały-prażone.jpg', // 11
+
+    './hearts.jpg', // 12
+
+    './2snikers.jpg', // 13
+    './2snikers.jpg', // 14
+
+    './Meltie.jpeg', // 15
+    './Meltie.jpeg', // 16
+
+    './coca-cola.jpg', // 17
+
+    './alpine-milk.jpeg', // 18
+
+    './2snikers.jpg', // 19
+    './2snikers.jpg' // 20
+]
+
+const getImagePath = (winTickets: number) => {
+    return prizes[winTickets]
 }
 
 type Props = {
@@ -81,7 +108,7 @@ export default function CustomModal({showModal, handleClose, winTickets}: Props)
 
                         showModal === 'WIN' &&
                             <img
-                                src={getImagePath(winTickets)} alt="win icon"
+                                src={getImagePath(winTickets)} alt={`win icon ${getImagePath(winTickets)}`}
                                 style={{
                                     marginTop: '15px',
                                     width: '100%'
