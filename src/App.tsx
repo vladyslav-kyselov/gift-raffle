@@ -62,17 +62,17 @@ function App() {
     const [showModal, setShowModal] = useState<string | null>(null);
 
 
-    const onStartGame = () => {
-        const losingRef = ref(db, '/losing');
-
-        set(losingRef, losingStartArray.map((item) => ({id: item, used: false})));
-
-        const winningRef = ref(db, '/winning');
-        set(winningRef, winningStartArray.map((item) => ({id: item, used: false})));
-
-        const ticketsRef = ref(db, '/tickets');
-        set(ticketsRef, 30);
-    };
+    // const onStartGame = () => {
+    //     const losingRef = ref(db, '/losing');
+    //
+    //     set(losingRef, losingStartArray.map((item) => ({id: item, used: false})));
+    //
+    //     const winningRef = ref(db, '/winning');
+    //     set(winningRef, winningStartArray.map((item) => ({id: item, used: false})));
+    //
+    //     const ticketsRef = ref(db, '/tickets');
+    //     set(ticketsRef, 30);
+    // };
 
     useEffect(() => {
         const losingRef = ref(db, '/losing');
